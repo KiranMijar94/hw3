@@ -1,0 +1,19 @@
+<h1>Add new post</h1>
+
+<%= form_tag :action => 'create' do %>
+<p><label for = "post_title">Title</label>:
+
+<%= text_field 'post', 'title' %></p>
+<p><label for = "post_description">Description</label>:
+
+<%= text_field 'post', 'description' %></p>
+<p><label for = "post_posted_on">Posted On</label>:
+
+<%= date_field 'post', 'posted_on' %></p>
+<p><label for = "posts_place_id">Place</label>:
+
+<%= collection_select(:post, :place_id, Place.all, :id, :name, prompt: true) %></p>
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:controller => 'place' , :action => 'index'} %>

@@ -1,0 +1,17 @@
+<h1><%= @place.name %></h1>
+
+<% if @posts.blank? %>
+<p>There are not any posts currently in the system for this place.</p>
+<% else %>
+   <% @posts.each do |c| %>
+      <h2><%= c.title %></h2>
+      <p>
+         <strong>Posted On:</strong> <%= c.posted_on %><br />
+         <strong>Description: </strong> $<%= c.description %><br />
+      </p>
+      <hr />
+   <% end %>
+<% end %>
+
+<%= link_to "Add new Post", {:controller => 'post' , :action => 'new' }%><br/>
+<%= link_to 'Back', {:action => 'index'} %>
